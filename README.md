@@ -2,4 +2,16 @@
 
 小红书Python SDK
 
-开发中...
+## requirement
+
+python >= 3.6
+
+# 开发中
+
+## 已完成
+
+* 公共数据接口
+
+## Todo
+
+...

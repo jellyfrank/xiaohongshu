@@ -19,7 +19,7 @@ class Comm(object):
         """
         小红书验签算法
         """
-        qstring = f"{url}?{'&'.join(f'{key}={data[key]}' for key in sorted(data.keys()))}{self._secret}"
+        qstring = f"{url}?{'&'.join(f'{key}={data[key]}' for key in sorted(data.keys()) if data[key] is not None)}{self._secret}"
         return md5(qstring.encode("utf-8")).hexdigest()
 
     def _get_headers(self, url, data=None):
