@@ -252,3 +252,9 @@ UNITLIST = {
     "片": "slice",
     "把": "piece(of umbrellas .etc)"
 }
+
+ORDER_STATUS = [
+    "waiting",
+    "shipped",
+    "received",
+]

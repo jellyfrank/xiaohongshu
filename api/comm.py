@@ -62,3 +62,13 @@ class Comm(object):
         headers = self._get_headers(url, data)
         url = f"{self._apihost}{url}"
         return requests.get(url, params=data, headers=headers)
+
+    def put(self, url, data=None):
+        """
+        请求URL接口
+        url: 接口地址
+        data: 请求数据
+        """
+        headers = self._get_headers(url, data)
+        url = f"{self._apihost}{url}"
+        return requests.put(url, json=data, headers=headers)

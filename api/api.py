@@ -1,5 +1,6 @@
 
 from .comApi import CommApi
+from .orderApi import OrderApi
 
 
 class ARK(object):
@@ -10,3 +11,4 @@ class ARK(object):
         self._sandbox = sandbox
 
     comm = CommApi()
+    order = OrderApi()
