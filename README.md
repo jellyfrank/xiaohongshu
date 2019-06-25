@@ -18,6 +18,16 @@ python >= 3.6
 
 ...
 
+# 安装使用
+
+## 安装
+
+pypi:
+
+```python
+pip install xiaohongshu
+```
+
 
 ## Usage
 
