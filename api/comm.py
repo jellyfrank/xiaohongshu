@@ -22,6 +22,13 @@ class Comm(object):
         qstring = f"{url}?{'&'.join(f'{key}={data[key]}' for key in sorted(data.keys()) if data[key] is not None)}{self._secret}"
         return md5(qstring.encode("utf-8")).hexdigest()
 
+    def _check_sign(self, url, headers, data):
+        """
+        验证推送的数据
+        """
+        sign = headers.pop("sign")
+        return sign == self._sign(url, headers+data)
+
     def _get_headers(self, url, data=None):
         """
         获取请求头
@@ -45,7 +52,7 @@ class Comm(object):
 
     def post(self, url, data=None):
         """
-        请求URL接口
+        使用post方法请求接口        
         url: 接口地址(相对路径)
         data: 请求数据
         """
@@ -55,7 +62,7 @@ class Comm(object):
 
     def get(self, url, data=None):
         """
-        请求URL接口
+        使用get方法请求接口        
         url: 接口地址
         data: 请求数据
         """
@@ -65,10 +72,20 @@ class Comm(object):
 
     def put(self, url, data=None):
         """
-        请求URL接口
+        使用put方法请求接口        
         url: 接口地址
         data: 请求数据
         """
         headers = self._get_headers(url, data)
         url = f"{self._apihost}{url}"
         return requests.put(url, json=data, headers=headers)
+
+    def patch(self, url, data=None):
+        """
+        使用patch方法请求接口
+        url: 接口地址
+        data: 请求数据
+        """
+        headers = self._get_headers(url, data)
+        url = f"{self._apihost}{url}"
+        return requests.patch(url, json=data, headers=headers)

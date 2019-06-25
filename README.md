@@ -12,6 +12,7 @@ python >= 3.6
 
 * 公共数据接口(comm)
 * 订单接口(order)
+* 库存接口(stock)
 
 ## Todo
 

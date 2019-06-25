@@ -1,6 +1,7 @@
 
 from .comApi import CommApi
 from .orderApi import OrderApi
+from .stockApi import StockApi
 
 
 class ARK(object):
@@ -12,3 +13,4 @@ class ARK(object):
 
     comm = CommApi()
     order = OrderApi()
+    stock = StockApi()
