@@ -72,7 +72,7 @@ class StockApi(Comm):
 
     def order_create_callback(self, url, headers, data, callback=None):
         """
-        库存变动回调
+        库存变动回调(订单创建)
         参数：
         url: 回调的URL（不包括host)
         headers: 小红书推送的请求头
@@ -81,6 +81,30 @@ class StockApi(Comm):
         return:
         返回给小红书的数据
         """
+        data = {
+            "data": "",
+            "error_code": "",
+            "error_msg": ""
+        }
+        if self._check_sign(url, headers, data):
+            callback(data)
+            data["success"] = True
+        else:
+            data["success"] = False
+        return json.dumps(data)
+
+    def order_cancel_callback(self, url, headers, data, callback=None):
+        """
+        库存变动回调（订单取消）
+        参数：
+        url: 回调的URL（不包括host)
+        headers: 小红书推送的请求头
+        data: 小红书推送的数据
+        callback: 要调用的处理方法
+        return:
+        返回给小红书的数据
+        """
+
         data = {
             "data": "",
             "error_code": "",
