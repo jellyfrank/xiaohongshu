@@ -35,3 +35,7 @@ ark.comm.get_express_list()
 订单相关接口封装在order
 库存相关接口封装在stock
 商品相关封装在product.
+
+## changelog
+
+[0.0.3] 添加物流模式接口的说明，官方文档存在错误。

@@ -14,6 +14,7 @@ class CommApi(Comm):
     def get_express_mode(self):
         """
         获取物流模式
+        注意：小红书官方文档示例有误，本接口返回的数据结果包含在data节点下的data数据中，请用户注意。
         """
         url = "/ark/open_api/v0/package/logistics"
         return self.get(url).json()
@@ -75,5 +76,3 @@ class CommApi(Comm):
         """
         url = f"/ark/open_api/v1/categories/{category_id}/attribute_options"
         return self.get(url).json()
-
-
