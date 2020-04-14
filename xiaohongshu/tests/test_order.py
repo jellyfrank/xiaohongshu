@@ -10,13 +10,14 @@ class TestOrder(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.ark = ARK("xhs", "9a539709cafc1efc9ef05838be468a28")
+        cls.ark = ARK("5fdd748e36", "b92585469dca4de76a4a1822429c5e18")
 
     def test_get_order_list(self):
         """
         测试获取订单列表接口
         """
-        res = self.ark.order.get_order_list()
+        res = self.ark.order.get_order_list(
+            page_no=1, status='shipped', logistics="red_standard", time_type="created_at", start_time='1577620620', end_time='1577620679')
         self.assertEqual(res["error_code"], 0, res)
 
     def test_get_order_detail(self):
